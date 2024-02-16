@@ -1,4 +1,4 @@
-name: Version Bump and GitHub Release
+name: Release Android App
 
 on:
   push:
@@ -6,28 +6,45 @@ on:
       - main
 
 jobs:
-  version-bump:
-    name: Version bump of app
+  release:
+    name: Release Android
     runs-on: ubuntu-latest
 
     steps:
-      - name: Code Checkout
-        uses: actions/checkout@v3
+      - name: Checkout Repository
+        uses: actions/checkout@v2
 
-      - name: Use Node.js 18
-        uses: actions/setup-node@v3
+      - name: Set up JDK 11
+        uses: actions/setup-java@v2
         with:
-          node-version: 18
-          cache: 'yarn'
+          distribution: 'adopt'
+          java-version: '11'
 
-      - name: Install yarn
-        run: npm install -g yarn
-
-      - name: Install node_modules
-        run: yarn ci
-
-      - name: Version bump and publish release
-        uses: nabeel-shakeel/react-native-version@main
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
         with:
-          repo_token: ${{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}}
-          supported_parameters: '{"tag-prefix":"v", "tag-suffix":"-staged", "automatic_release_tag":"latest_release"}'
+          node-version: '14'
+
+      - name: Install Dependencies
+        run: npm install
+
+      - name: Build Android Release
+        run: |
+          cd android
+          ./gradlew assembleRelease
+
+      - name: Sign APK
+        uses: r0adkll/sign-android-release@v1
+        with:
+          releaseDirectory: './android/app/build/outputs/apk/release'
+          alias: ${{ socialdownloader.KEY_ALIAS }}
+          keyStorePassword: ${{ socialdownloader.KEYSTORE_PASSWORD }}
+          keyPassword: ${{ pritam }}
+          apkPath: './android/app/build/outputs/apk/release/app-release-unsigned.apk'
+          outputFile: './android/app/build/outputs/apk/release/app-release-signed.apk'
+
+      - name: Upload Release APK
+        uses: actions/upload-artifact@v2
+        with:
+          name: release-apk
+          path: ./android/app/build/outputs/apk/release/app-release-signed.apk
