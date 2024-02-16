@@ -1,7 +1,6 @@
 name: "Build Android app"
 
 on:
-  on:
   push:
     branches:
       - main
