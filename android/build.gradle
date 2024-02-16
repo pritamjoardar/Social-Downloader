@@ -1,4 +1,3 @@
-def enableProguardInReleaseBuilds = true
 buildscript {
     ext {
         buildToolsVersion = "34.0.0"
