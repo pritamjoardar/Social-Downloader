@@ -1,79 +1,75 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+![Repo Banner](https://github.com/pritamjoardar/Social-Downloader/assets/111422356/0ff766bc-aa90-4349-a546-35f3d314560a)
 
-# Getting Started
+# Social Downloader
 
->**Note**: Make sure you have completed the [React Native - Environment Setup](https://reactnative.dev/docs/environment-setup) instructions till "Creating a new application" step, before proceeding.
+An Open-Source Social Media reels, photos, videos downloader App for all your needs!
 
-## Step 1: Start the Metro Server
 
-First, you will need to start **Metro**, the JavaScript _bundler_ that ships _with_ React Native.
 
-To start Metro, run the following command from the _root_ of your React Native project:
+### Don't forget to :star: the repo
 
-```bash
-# using npm
-npm start
 
-# OR using Yarn
-yarn start
+## Features
+
+- High Quality Video Download
+- Instagram video Download
+- Instagram Reels Download
+- Instagram Photos Download
+- Facebook video Download
+- Facebook Reels Download
+- Facebook Photos Download
+- Download for offline play
+- Auto Update Check
+- No Subscription
+- No Ads
+
+and much more...
+Check it yourself :)
+
+## License
+
+```
+Copyright © 2024 Pritam Joardar
+
 ```
 
-## Step 2: Start your Application
+See the web version as well [Insta](https://reelsaver.online/) for more details.
 
-Let Metro Bundler run in its _own_ terminal. Open a _new_ terminal from the _root_ of your React Native project. Run the following command to start your _Android_ or _iOS_ app:
+## Building from Source
 
-### For Android
+1. Fetch latest source code from main branch.
 
-```bash
-# using npm
+```
+https://github.com/pritamjoardar/Social-Downloader.git
+```
+
+2. Run the app with VS Code. Or the command line:
+
+```
+npm i 
 npm run android
-
-# OR using Yarn
-yarn android
 ```
 
-### For iOS
+## Contribute
 
-```bash
-# using npm
-npm run ios
+Contributions are welcome. 
+## Facing any Issue?
 
-# OR using Yarn
-yarn ios
+## Liked my work?
+
+<a href="https://www.buymeacoffee.com/pritamjoardar" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png" alt="Buy Me A Coffee" style="height: 41px !important;width: 174px !important;box-shadow: 0px 3px 2px 0px rgba(190, 190, 190, 0.5) !important;-webkit-box-shadow: 0px 3px 2px 0px rgba(190, 190, 190, 0.5) !important;" ></a>
+
+## What's New
+
+
+
+## Disclaimer
 ```
-
-If everything is set up _correctly_, you should see your new app running in your _Android Emulator_ or _iOS Simulator_ shortly provided you have set up your emulator/simulator correctly.
-
-This is one way to run your app — you can also run it directly from within Android Studio and Xcode respectively.
-
-## Step 3: Modifying your App
-
-Now that you have successfully run the app, let's modify it.
-
-1. Open `App.tsx` in your text editor of choice and edit some lines.
-2. For **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Developer Menu** (<kbd>Ctrl</kbd> + <kbd>M</kbd> (on Window and Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (on macOS)) to see your changes!
-
-   For **iOS**: Hit <kbd>Cmd ⌘</kbd> + <kbd>R</kbd> in your iOS Simulator to reload the app and see your changes!
-
-## Congratulations! :tada:
-
-You've successfully run and modified your React Native App. :partying_face:
-
-### Now what?
-
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [Introduction to React Native](https://reactnative.dev/docs/getting-started).
-
-# Troubleshooting
-
-If you can't get this to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
-
-# Learn More
-
-To learn more about React Native, take a look at the following resources:
-
-- [React Native Website](https://reactnative.dev) - learn more about React Native.
-- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
-- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
-- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
+Reelssaver does not own or have any affiliation with the reels and other content available through the app.
+Reelsaver is not responsible for any infringement of copyright or other intellectual property rights that may result
+from the use of the songs and other content available through the app. BlackHole uses third-party plugins and
+is not responsible for any harm or damage to the respective owners or any other parties resulting from the use
+of the songs and other content through the third-party plugins.
+By using the app, you agree to use the songs and other content only for personal, non-commercial purposes
+and in compliance with all applicable laws and regulations.
+```
