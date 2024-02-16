@@ -1,29 +1,21 @@
-name: Social-Sownloader-apk
+name: Build Android
 on:
   push:
-    branches:
-      - main
+    branches: [main]
 jobs:
-  install-and-test:
+  build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - name: Install npm dependencies
-        run: |
-          npm install
-  build-android:
-    needs: install-and-test
-    runs-on: ubuntu-latest
-    steps: 
-      - uses: actions/checkout@v3
-      - name: Install npm dependencies
-        run: |
-          npm install
+
+      - name: Install dependencies
+        run: yarn
+
       - name: Build Android Release
-        run: |
-          cd android && ./gradlew assembleRelease
+        run: cd android && ./gradlew assembleRelease
+
       - name: Upload Artifact
         uses: actions/upload-artifact@v1
         with:
-          name: Social-Downloader.apk
-          path: android/app/build/outputs/apk/release/
+          name: release
+          path: android/app/build/outputs/apk/release/app-release.apk
