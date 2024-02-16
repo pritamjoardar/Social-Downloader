@@ -1,4 +1,4 @@
-name: Release Android App
+name: "Build Android app"
 
 on:
   push:
@@ -6,45 +6,39 @@ on:
       - main
 
 jobs:
-  release:
-    name: Release Android
+  build:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout Repository
+      - name: Checkout repository
         uses: actions/checkout@v2
 
-      - name: Set up JDK 11
+      - name: Install Java
         uses: actions/setup-java@v2
         with:
-          distribution: 'adopt'
-          java-version: '11'
+          java-version: "11"
+          distribution: "adopt"
+          cache: "gradle"
 
-      - name: Set up Node.js
-        uses: actions/setup-node@v2
+      - name: Validate Gradle wrapper
+        uses: gradle/wrapper-validation-action@v1
+
+      - name: Setup Node  
+        uses: actions/setup-node@v3
         with:
-          node-version: '14'
+          node-version: '16'
 
-      - name: Install Dependencies
-        run: npm install
-
-      - name: Build Android Release
+      - name: Run Yarn Install
         run: |
-          cd android
-          ./gradlew assembleRelease
-
-      - name: Sign APK
-        uses: r0adkll/sign-android-release@v1
-        with:
-          releaseDirectory: './android/app/build/outputs/apk/release'
-          alias: ${{ socialdownloader.KEY_ALIAS }}
-          keyStorePassword: ${{ socialdownloader.KEYSTORE_PASSWORD }}
-          keyPassword: ${{ pritam }}
-          apkPath: './android/app/build/outputs/apk/release/app-release-unsigned.apk'
-          outputFile: './android/app/build/outputs/apk/release/app-release-signed.apk'
-
-      - name: Upload Release APK
+             cd ./packages/app-mobile/
+             npm i -g corepack
+             yarn install             
+      - name: Build application
+        run: |
+             cd ./packages/app-mobile/android
+             ./gradlew assembleDebug             
+      - name: Upload application
         uses: actions/upload-artifact@v2
         with:
-          name: release-apk
-          path: ./android/app/build/outputs/apk/release/app-release-signed.apk
+          name: app
+          path: ./packages/app-mobile/android/app/build/outputs/apk/debug/app-debug.apk
+          retention-days: 3
