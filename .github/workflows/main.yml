@@ -27,14 +27,12 @@ jobs:
         with:
           node-version: '16'
 
-      - name: Run Yarn Install
+      - name: Run Npm Install
         run: |
-             cd ./packages/app-mobile/
-             npm i -g corepack
-             yarn install             
+              npm install             
       - name: Build application
         run: |
-             cd ./packages/app-mobile/android
+             cd ./android
              ./gradlew assembleDebug             
       - name: Upload application
         uses: actions/upload-artifact@v2
