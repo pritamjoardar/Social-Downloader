@@ -33,10 +33,10 @@ jobs:
       - name: Build application
         run: |
              cd ./android
-             ./gradlew assembleDebug             
+             ./gradlew assembleRealase            
       - name: Upload application
         uses: actions/upload-artifact@v2
         with:
           name: app
-            ./android/app/build/outputs/apk/release/
+          path: ./android/app/build/outputs/apk/release/app-release.apk
           retention-days: 3
